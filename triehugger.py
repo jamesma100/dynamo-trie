@@ -1,4 +1,4 @@
-class Trie(object):
+class Triehugger(object):
     def __init__(self, val="", parent=None, store=True):
         self.val = val
         self.children = {}
@@ -14,7 +14,7 @@ class Trie(object):
         cur = val[:idx+1]
         if cur not in self.children:
             # Only store final leaf node
-            new_node = Trie(val=cur, parent=self, store=True if idx == len(val)-1 else False)
+            new_node = Triehugger(val=cur, parent=self, store=True if idx == len(val)-1 else False)
             self.children[cur] = new_node
         # Node already exists! In that case, if we are at the final word in our recursion,
         # store the existing node
@@ -57,13 +57,11 @@ class Trie(object):
 
 if __name__ == "__main__":
     # Example usage
-    trie = Trie()
-    trie.add("hello")
-    trie.add("hellothere")
-    trie.add("hellothereworld")
-    print(trie)
-    trie.delete("hellothereworld")
-    print(trie)
-    trie.add("hellothe")
-    trie.delete("hellothere")
-    print(trie)
+    triehugger = Triehugger()
+    triehugger.add("beets")
+    triehugger.add("beetle")
+    triehugger.add("beetlejuice")
+    print(triehugger)
+    triehugger.delete("beetlejuice")
+    print(triehugger)
+
